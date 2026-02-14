@@ -29,10 +29,7 @@ public class Pemilihan {
             return;
         }
 
-        double nilaiAkhir = (0.2 * tugas) +
-                            (0.2 * kuis) +
-                            (0.3 * uts) +
-                            (0.3 * uas);
+        double nilaiAkhir = (0.2 * tugas) + (0.2 * kuis) + (0.3 * uts) + (0.3 * uas);
 
         String nilaiHuruf;
 
