@@ -66,6 +66,5 @@ public class Pemilihan {
         } else {
             System.out.println("ANDA TIDAK LULUS");
         }
-
     }
 }
