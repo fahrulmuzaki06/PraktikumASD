@@ -8,6 +8,7 @@ public class Mahasiswa14 {
     }
 
     public Mahasiswa14(String nm, String nim, double ipk, String kls) {
+        
     nama = nm;
     this.nim = nim;
     this.ipk = ipk;
