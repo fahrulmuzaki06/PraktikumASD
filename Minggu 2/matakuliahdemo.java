@@ -7,16 +7,9 @@ public class matakuliahdemo {
         System.out.println("Data Mata Kuliah");
         mk1.tampilkanInformasi();
         mk2.tampilkanInformasi();
-
-        // mengubah SKS
         mk1.ubahSKS(4);
-
-        // menambah jam
         mk1.tambahJam(2);
-
-        // mengurangi jam
         mk1.kurangiJam(1);
-
         System.out.println("Setelah Perubahan");
         mk1.tampilkanInformasi();
     }
