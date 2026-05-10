@@ -95,7 +95,7 @@ public class cmMain {
                     }
                     break;
                 
-                //Modifikasi C2 total lama peminjaman per mahasiswa
+                //Modifikasi C2 total lama peminjaman per mahasisw
                 case 6:
                     for (Peminjaman p : pinjam) {
                         if (p.mhs.nim.equals("22001")) {
