@@ -1,18 +1,11 @@
 import java.util.Scanner;
+
 public class RestoranMain {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         AntrianDouble antrian = new AntrianDouble();
         PesananDouble pesanan = new PesananDouble();
         int pilihan;
-
-        Pembeli[] dataPembeli = {
-            new Pembeli("Ainra", "08224500000"),
-            new Pembeli("Danra", "08224511111"),
-            new Pembeli("Sanri", "08224522222"),
-            new Pembeli("Vania", "08422234556")
-        };
-        int indexPembeli = 0;
 
         Pesanan[] dataPesanan = {
             new Pesanan(123, "Es Teler", 5000),
@@ -26,22 +19,25 @@ public class RestoranMain {
             System.out.println("\n======================================");
             System.out.println("SISTEM ANTRIAN ROYAL DELISH");
             System.out.println("======================================");
-            System.out.println("1. Tambah Antrian");
+            System.out.println("1. Tambah Antrian (Input Manual)");
             System.out.println("2. Cetak Antrian");
             System.out.println("3. Hapus Antrian dan Pesan");
             System.out.println("4. Laporan Pesanan");
             System.out.println("0. Keluar");
             System.out.print("Pilih menu: ");
             pilihan = sc.nextInt();
+            sc.nextLine();
 
             switch (pilihan) {
                 case 1:
-                    if (indexPembeli < dataPembeli.length) {
-                        antrian.addLast(dataPembeli[indexPembeli]);
-                        indexPembeli++;
-                    } else {
-                        System.out.println("Data pembeli sudah dimasukkan semua");
-                    }
+                    System.out.print("Masukkan Nama Pembeli: ");
+                    String nama = sc.nextLine();
+                    System.out.print("Masukkan No HP Pembeli: ");
+                    String noHp = sc.nextLine();
+
+                    Pembeli pembeliBaru = new Pembeli(nama, noHp);
+                    
+                    antrian.addLast(pembeliBaru);
                     break;
                 case 2:
                     antrian.print();
