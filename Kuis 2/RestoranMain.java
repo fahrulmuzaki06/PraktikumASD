@@ -7,21 +7,17 @@ public class RestoranMain {
         PesananDouble pesanan = new PesananDouble();
         int pilihan;
 
-        Pesanan[] dataPesanan = {
-            new Pesanan(123, "Es Teler", 5000),
-            new Pesanan(124, "Mie Goreng", 34000),
-            new Pesanan(125, "Es Degan", 6000),
-            new Pesanan(126, "Nasi Goreng", 25000)
-        };
-        int indexPesanan = 0;
+        antrian.addLast(new Pembeli("Ainra", "08224500000"));
+        antrian.addLast(new Pembeli("Danra", "08224511111"));
+        antrian.addLast(new Pembeli("Sanri", "08224522222"));
 
         do {
             System.out.println("\n======================================");
             System.out.println("SISTEM ANTRIAN ROYAL DELISH");
             System.out.println("======================================");
-            System.out.println("1. Tambah Antrian (Input Manual)");
+            System.out.println("1. Tambah Antrian (Manual)");
             System.out.println("2. Cetak Antrian");
-            System.out.println("3. Hapus Antrian dan Pesan");
+            System.out.println("3. Hapus Antrian dan Input Pesan (Manual)");
             System.out.println("4. Laporan Pesanan");
             System.out.println("0. Keluar");
             System.out.print("Pilih menu: ");
@@ -30,13 +26,12 @@ public class RestoranMain {
 
             switch (pilihan) {
                 case 1:
-                    System.out.print("Masukkan Nama Pembeli: ");
+                    System.out.print("Nama Pembeli: ");
                     String nama = sc.nextLine();
-                    System.out.print("Masukkan No HP Pembeli: ");
+                    System.out.print("No HP: ");
                     String noHp = sc.nextLine();
 
                     Pembeli pembeliBaru = new Pembeli(nama, noHp);
-                    
                     antrian.addLast(pembeliBaru);
                     break;
                 case 2:
@@ -44,14 +39,24 @@ public class RestoranMain {
                     break;
                 case 3:
                     AntrianNode hapus = antrian.removeFirst();
+                    
                     if (hapus != null) {
-                        if (indexPesanan < dataPesanan.length) {
-                            pesanan.addLast(dataPesanan[indexPesanan]);
-                            System.out.println(hapus.data.namaPembeli + " telah memesan " + dataPesanan[indexPesanan].namaPesanan);
-                            indexPesanan++;
-                        } else {
-                            System.out.println(hapus.data.namaPembeli + " selesai dilayani (Tidak ada data pesanan tersisa)");
-                        }
+                        System.out.print("Kode Pesanan  : ");
+                        int kodePsn = sc.nextInt();
+                        sc.nextLine();
+                        
+                        System.out.print("Nama Pesanan  : ");
+                        String namaPsn = sc.nextLine();
+                        
+                        System.out.print("Harga         : Rp ");
+                        int hargaPsn = sc.nextInt();
+                        sc.nextLine();
+
+                        Pesanan pesananBaru = new Pesanan(kodePsn, namaPsn, hargaPsn);
+                        
+                        pesanan.addLast(pesananBaru);
+                        
+                        System.out.println("Sukses! " + hapus.data.namaPembeli + " telah memesan " + namaPsn);
                     } else {
                         System.out.println("Antrian Kosong");
                     }
