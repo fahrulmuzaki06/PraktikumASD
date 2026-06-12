@@ -58,7 +58,22 @@ public class AntrianDouble {
             current = current.next;
         }
     }
+    //Modifikasi menambahkan menu untuk melihat pembeli yang berada di posisi paling depan dan belakang antrian
+    public AntrianNode peekFirst() {
+        if (isEmpty()) {
+            return null;
+            }
+        return head;
+    }
 
-    
+    public AntrianNode peekLast(){
+        if (isEmpty()) {
+            return null;
+        }
+        return tail;
+
+    }
+
+
 
 }

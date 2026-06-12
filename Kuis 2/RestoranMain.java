@@ -14,11 +14,12 @@ public class RestoranMain {
         do {
             System.out.println("\n======================================");
             System.out.println("SISTEM ANTRIAN ROYAL DELISH");
-            System.out.println("======================================");
-            System.out.println("1. Tambah Antrian (Manual)");
+            System.out.println("========================================");
+            System.out.println("1. Tambah Antrian");
             System.out.println("2. Cetak Antrian");
-            System.out.println("3. Hapus Antrian dan Input Pesan (Manual)");
+            System.out.println("3. Hapus Antrian dan Pesan");
             System.out.println("4. Laporan Pesanan");
+            System.out.println("5. Pembeli Posisi Paling Depan dan Belakang Antrian");
             System.out.println("0. Keluar");
             System.out.print("Pilih menu: ");
             pilihan = sc.nextInt();
@@ -53,7 +54,6 @@ public class RestoranMain {
                         sc.nextLine();
 
                         Pesanan pesananBaru = new Pesanan(kodePsn, namaPsn, hargaPsn);
-                        
                         pesanan.addLast(pesananBaru);
                         
                         System.out.println("Sukses! " + hapus.data.namaPembeli + " telah memesan " + namaPsn);
@@ -63,6 +63,17 @@ public class RestoranMain {
                     break;
                 case 4:
                     pesanan.printLaporan();
+                    break;
+                //Modifikasi menambahkan menu untuk melihat pembeli yang berada di posisi paling depan dan belakang antrian
+                case 5:
+                    AntrianNode depan = antrian.peekFirst();
+                    AntrianNode belakang = antrian.peekLast();
+                    if (depan != null && belakang != null) {
+                        System.out.println("Pembeli Antrian Paling Depan: " + depan.data.namaPembeli);
+                        System.out.println("Pembeli Antrian Paling Belakang: " + belakang.data.namaPembeli);
+                    } else {
+                        System.out.println("Antrian Kosong");
+                    }
                     break;
                 case 0:
                     System.out.println("Program selesai");
