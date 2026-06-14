@@ -10,6 +10,22 @@ public class SSLMain14 {
         MahasiswaaA14 mhs3 = new MahasiswaaA14("22212202", "Cintia", "3C", 3.5);
         MahasiswaaA14 mhs4 = new MahasiswaaA14("21212203", "Dirga", "4D", 3.6);
 
+        System.out.println("=== Masukkan Data Mahasiswa ===");
+        System.out.print("NIM: ");
+        String nim = sc.nextLine();
+        System.out.print("Nama: ");
+        String nama = sc.nextLine();
+        System.out.print("Kelas: ");
+        String kelas = sc.nextLine();
+        System.out.print("IPK: ");
+        double ipk = sc.nextDouble();
+
+        MahasiswaaA14 mhsBaru = new MahasiswaaA14(nim, nama, kelas, ipk);
+        sll.addFirst(mhsBaru); 
+        
+        System.out.println("\nIsi Linked List setelah ditambah dari keyboard:");
+        sll.print();
+
         sll.print();
         sll.addFirst(mhs4);
         sll.print();
